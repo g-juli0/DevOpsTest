@@ -1,6 +1,6 @@
 FROM node:latest
-WORKDIR /app
-COPY . /app
+WORKDIR /devopstest
+COPY . /devopstest
 RUN npm install
 EXPOSE 8080
-CMD ["node","server.js"]
+CMD ["node", "server.js"]
