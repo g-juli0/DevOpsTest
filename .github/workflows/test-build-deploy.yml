@@ -1,0 +1,118 @@
+name: Test, Build, and Deploy Docker Image Locally
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        shell: cmd
+        run: npm ci
+
+      # Run ESLint to check for code issues
+      - name: Run ESLint
+        shell: cmd
+        run: ./node_modules/.bin/eslint .
+
+      # Run Prettier to check code formatting
+      - name: Check code formatting with Prettier
+        shell: cmd
+        run: ./node_modules/.bin/prettier --check .
+        continue-on-error: true
+
+  build:
+    runs-on: self-hosted
+    needs: test
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Docker Buildx for multi-platform support
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # Log in to Docker Hub (optional, if pushing to a registry)
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
+
+      # Build the Docker image
+      - name: Build Docker image
+        shell: cmd
+        run: |
+          docker build -t devopscicd-image:latest .
+
+      # Push image to Docker Hub
+      - name: Push Docker image
+        shell: cmd
+        run: |
+          docker tag devopscicd-image:latest ${{ secrets.DOCKER_USER }}/devopscicd-image:latest
+          docker push ${{ secrets.DOCKER_USER }}/devopscicd-image:latest
+      
+      # Run Docker container
+      - name: Run Docker container
+        shell: cmd
+        run: docker run -d -p 8080:80 devopscicd-image:latest
+
+  deploy:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Decode the base64 encoded kubeconfig and save it to a file using certutil
+      - name: Decode kubeconfig from base64
+        shell: cmd
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          set /p=%KUBECONFIG% > encoded.txt
+          certutil -decode encoded.txt kubeconfig
+          del encoded.txt
+
+      # Set the KUBECONFIG environment variable
+      - name: Set KUBECONFIG environment variable
+        shell: cmd
+        run: |
+          set KUBECONFIG=%cd%\kubeconfig
+          echo KUBECONFIG is set to %KUBECONFIG%
+
+      # Set current context
+      - name: Set current context
+        shell: cmd
+        run: kubectl config use-context docker-desktop
+
+      # Verify Kubernetes context
+      - name: Verify Kubernetes context
+        shell: cmd
+        run: kubectl config current-context
+
+      # Apply Kubernetes manifests
+      - name: Apply Kubernetes manifests
+        shell: cmd
+        run: |
+          kubectl apply -f deployment.yaml
+          kubectl apply -f service.yaml
+
+      # Port-forward to local machine
+      - name: Port forward service
+        shell: cmd
+        run: |
+          start kubectl port-forward svc/devopscicd-service 8080:80
