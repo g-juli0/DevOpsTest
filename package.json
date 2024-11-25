@@ -1,0 +1,45 @@
+{
+  "name": "adas-2020",
+  "version": "1.0.0",
+  "description": "Asher Dam Alert System",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "prettier:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCSCSM-Capping/ADAS-2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MCSCSM-Capping/ADAS-2020/issues"
+  },
+  "homepage": "https://github.com/MCSCSM-Capping/ADAS-2020#readme",
+  "dependencies": {
+    "arch": "^2.2.0",
+    "console-log-json": "^2.12.1",
+    "express": "^4.18.2",
+    "http": "0.0.1-security",
+    "http-proxy": "^1.18.1",
+    "import-http": "^0.3.1",
+    "jquery-csv": "^1.0.21",
+    "mdb-reader": "^1.2.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.5",
+    "nodemailer": "^6.9.5",
+    "path": "^0.12.7",
+    "xml2js": "^0.6.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3"
+  }
+}
