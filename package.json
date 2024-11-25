@@ -1,7 +1,7 @@
 {
-  "name": "adas-2020",
+  "name": "DevOpsCICD",
   "version": "1.0.0",
-  "description": "Asher Dam Alert System",
+  "description": "Project for CMPT410",
   "main": "app.js",
   "type": "module",
   "scripts": {
