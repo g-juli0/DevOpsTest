@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devopscicd-service
+spec:
+  selector:
+    app: devopscicd
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

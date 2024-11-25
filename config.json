@@ -1,0 +1,33 @@
+{
+  "database": {
+    "host": "localhost",
+    "user": "adas-user",
+    "password": "Rhinebeck2022!",
+    "database": "damdb"
+  },
+  "server": {
+    "port": "8080"
+  },
+  "externalAPIs": {
+    "weathergov": {
+      "url": "api.weather.gov"
+    },
+    "darksky": {
+      "url": "api.darksky.net",
+      "key": "9f4e8ccd67dbda5ee087a864154ba642"
+    },
+    "weatherbit": {
+      "url": "https://api.weatherbit.io/v2.0/forecast/daily",
+      "key": "5a6d3ec0910a40ac803ef896360a04fc"
+    },
+    "openweathermap": {
+      "url": "api.openweathermap.org",
+      "key": "bb2a161222025790cb1ef521afbe89fc"
+    },
+    "numRequests": "1"
+  },
+  "email": {
+    "address": "landsmankillwaterdata@gmail.com",
+    "password": "dunqpmgqswyzrobx"
+  }
+}

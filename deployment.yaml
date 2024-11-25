@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopscicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopscicd
+  template:
+    metadata:
+      labels:
+        app: devopscicd
+    spec:
+      containers:
+        - name: devopscicd
+          image: devopscicd:latest
+          ports:
+            - containerPort: 8080
