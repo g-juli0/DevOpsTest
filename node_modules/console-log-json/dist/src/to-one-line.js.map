@@ -1,0 +1,1 @@
+{"version":3,"file":"to-one-line.js","sourceRoot":"","sources":["../../src/to-one-line.ts"],"names":[],"mappings":";;;AAAA,SAAgB,SAAS,CAAC,KAAa;IACrC,IAAI,KAAK,IAAI,IAAI,IAAI,KAAK,CAAC,MAAM,GAAG,CAAC,EAAE;QACrC,OAAO,KAAK,CAAC,OAAO,CAAC,WAAW,EAAE,EAAE,CAAC,CAAC;KACvC;SAAM;QACL,OAAO,KAAK,CAAC;KACd;AACH,CAAC;AAND,8BAMC"}
