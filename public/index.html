@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="../gianna-julio/images/fav2.png">
+    <title>Gianna Julio</title>
+    <style>
+        /* CSS to style the banner image */
+        p {
+            line-height: 1.15;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            height: 100px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+
+        .menu-item {
+            padding: 10px;
+        }
+
+            .menu-item:hover {
+                background-color: #555;
+            }
+
+        .button {
+            background-color: #555;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+            .button:hover {
+                background-color: #555;
+            }
+
+        .larger-text {
+            font-size: 24px;
+        }
+
+    </style>
+
+    <script>
+      function increaseTextSize() {
+        // Get all the elements with the "body" tag name
+        var elements = document.getElementsByTagName("body");
+
+        // Increase the font size for each element
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].classList.toggle("larger-text");
+        }
+      }
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <img src="../gianna-julio/images/favicon.png" alt="Logo" class="logo">
+        <h1 class="title">Gianna Julio</h1>
+    </div>
+    <!-- BANNER IMAGE -->
+    <img src="../images/banner.png" alt="a server room" style="width: 100%; height: 250px;">
+    <!-- NAVIGATION BAR -->
+    <div class="menu">
+        <div class="menu-item">Home Page</div>
+        <div class="menu-item">About Our Company</div>
+        <div class="menu-item">Contact Us</div>
+        <div class="menu-item">News</div>
+        <div class="menu-item">Buy Databases</div>
+        <button class="button" onclick="increaseTextSize()">Increase Text Size</button>
+    </div>
+
+    <!-- TEXT COLUMNS -->
+    <div class="container">
+        <div class="column">
+            <h2>DATABASES</h2>
+            <p>This is some example text about databases. This is some example text about databases. This is some example text about databases.</p><br>
+            <p>This is some example text about databases. This is some example text about databases. This is some example text about databases.</p><br>
+        </div>
+        <div class="column">
+            <h2>DATABASES</h2>
+            <p>This is some example text about databases. This is some example text about databases. This is some example text about databases.</p><br>
+            <p>This is some example text about databases. This is some example text about databases. This is some example text about databases.</p><br>
+        </div>
+    </div>
+
+    <h1>WE SELL DATABASES</h1>
+    <p>This is some example text about databases. This is some example text about databases. This is some example text about databases.</p><br>
+    <p>This is some example text about databases. This is some example text about databases. This is some example text about databases.</p><br>
+
+    <!-- LINK -->
+    <h1 class="highlight">SALE</h1>
+    <p>Grand opening deal - 25% off all first database orders!</p>
+    <p class="link"><a href="https://www.example.com">See all available sale items</a></p>
+
+    <!-- BUTTON -->
+    <h1>Looking for Employment?</h1>
+    <button class="button">Jobs</button>
+
+    <!-- <h1>Gianna Julio</h1> -->
+
+</body>
+</html>
