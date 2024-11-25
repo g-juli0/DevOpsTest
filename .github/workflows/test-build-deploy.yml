@@ -2,9 +2,9 @@ name: Test, Build, and Deploy Docker Image Locally
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
   pull_request:
-    branches: ["master"]
+    branches: ["main"]
 
 jobs:
   test:
