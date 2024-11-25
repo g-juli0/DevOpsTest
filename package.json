@@ -1,5 +1,5 @@
 {
-  "name": "DevOpsCICD",
+  "name": "devopscicd",
   "version": "1.0.0",
   "description": "Project for CMPT410",
   "main": "app.js",
