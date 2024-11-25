@@ -115,4 +115,4 @@ jobs:
       - name: Port forward service
         shell: cmd
         run: |
-          kubectl port-forward svc/devopscicd-service 8080:8080
+          start kubectl port-forward svc/devopscicd-service 8080:8080
