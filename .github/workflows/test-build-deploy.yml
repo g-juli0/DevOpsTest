@@ -66,7 +66,7 @@ jobs:
       # Run Docker container
       - name: Run Docker container
         shell: cmd
-        run: docker run -d -p 8080:80 devopscicd-image:latest
+        run: docker run -d -p 8080:8080 devopscicd-image:latest
 
   deploy:
     runs-on: self-hosted
@@ -115,4 +115,4 @@ jobs:
       - name: Port forward service
         shell: cmd
         run: |
-          start kubectl port-forward svc/devopscicd-service 8080:80
+          kubectl port-forward svc/devopscicd-service 8080:8080
