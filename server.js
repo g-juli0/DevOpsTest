@@ -12,12 +12,12 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve the index.html file at the root route
-app.get('/', (req, res) => {
+app.get('/app', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Define the port
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
