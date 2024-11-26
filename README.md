@@ -2,10 +2,10 @@ Sample site for DevOps CI/CD project with Kubernetes, Docker Desktop, and GitHub
 
 # To run locally (notes to self):
 
-1) make sure actions-runner is running
+1) make sure actions-runner is running with
 ```run.cmd```
 
-2) make sure any old containers are removed on Docker Desktop
+2) make sure any old containers are removed on Docker Desktop (no automated tear-down in the pipeline)
 
 3) edit a file, commit, and push
 
